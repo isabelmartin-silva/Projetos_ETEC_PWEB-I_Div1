@@ -8,7 +8,7 @@ box-sizing: border-box; /*faz com que o padding e border sejam incluídos na lar
 body{ /*fontes: Segoe UI é a primeira opção se não tiver, vai tentando as próximas*/
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6; /*altura entre as linhas 1.6x o tamanho da fonte*/
-    color: #333; /*cor do texto 'cinza escuro'*/
+    color: #000000; /*cor do texto 'cinza escuro'*/
     /*gradiente de fundo: 135deg é a direção, de roxo claro para roxo escuro*/
     background: linear-gradient( 135deg,#535e8f 0%, #6d06d4 100%);
     min-width: 110vh; /*vh = viewport height. Mínimo de 100% da altura da tela*/  
@@ -36,4 +36,55 @@ header img{
 }
 header img:hover{/*hover = quando passa o mouse por cima faz alguma coisa*/
     transform: scale(1.05);/*aumenta 5% do tamanho da imagem original*/
+}
+nav a{
+    text-decoration: none;/*remove o sublinhado padrão dos links*/
+    color: #764ba2;/*defino uma cor do texto roxo*/
+    font-weight: 600;/*peso da fonte (semi negrito)*/
+    padding: 0.5rem 1rem;/*8px em cima/baixo e 16px nas laterais*/
+    border-radius: 25px;/*bordas arredondadas*/
+    transition: all 0.3 ease;/*transição suave para todas as propriedades*/
+    position: relative;/*necessário para o pseudo-elemento ::after*/
+}
+nav a:hover{
+    background-color: #764ba2;
+    color: white;
+    transform: translatey(-2px);/*move 2 pixels para cima*/
+    box-shadow: 0 5px 15px rgba(118, 75, 162, 0.3);/*sombra roxa suave*/
+}
+nav a::after{/*pseudo elemento para criar a linha animada abaixo dos links*/
+    content: ' ';/*necessário para criar o elemento*/
+    position: absolute;/*posição em relação ao elemento*/
+    bottom: 0;/*cola na parte inferior*/
+    left: 50%;/*começa do meio*/
+    transform: translateX(-50%);/*centraliza horizontalmente*/
+    width: 0;/*começa com a largura 0*/
+    height: 2px;/*altura da linha*/
+    background-color: rgb(255, 0, 128);
+    transition: widht 0.3s ease;/*anima apenas a largura*/
+}
+nav a:hover::after{
+    width: 80%;/*texpande para 80% da largura do link*/
+}
+/*===CONTEUDO PRINCIPAL DO SITE===*/
+main{
+    max-width: 1200px;/*largura maxima em pixels*/
+    margin: 2rem auto;/*32px cima/baixo auto nas laterais (centraliza)*/
+    padding: 2rem;/*espaçamento interno de 32px em todos os lados*/
+    background-color: rgba(235, 34, 145, 0.95);
+    border-radius: 20px;/*borda arredondada*/
+    box-shadow: 0 10px 40px rgba(221, 218, 218, 0.2);/*sombra um pouco mais pronunciada*/
+    backdrop-filter: blur(10px);/*efeito de desfoque no fundo*/
+    animation:  slideIn 0.5s ease-out;/*animação de entrada*/
+}
+/*===DEFINIÇÃO DA ANIMAÇÃO DO SLIDEIN*/
+@keyframes slideIn {
+    from{/*estado inicial*/
+        opacity: 0;/*invisível*/
+        transform: translateY(30px);/*30px para baixo*/
+    }
+    to{/*estado final*/
+        opacity: 1;/*visível*/
+        transform: translateY(0);/*posição original*/
+    }
 }
