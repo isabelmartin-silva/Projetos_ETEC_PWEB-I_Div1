@@ -88,3 +88,19 @@ main{
         transform: translateY(0);/*posição original*/
     }
 }
+/*Garante que nada transborde*/
+img, iframe{
+    max-width: 100%;/*largura máxima*/
+    height: auto;
+    border-radius: 10px;
+}
+/*Deixa o vídeo responsível(mantem a proporção 16:9)*/
+.video-wrapper{
+    position: relative;
+    height: 200px;
+    width: auto;
+}
+iframe{
+    position: absolute;
+    align-items: center;
+}
